@@ -30,6 +30,11 @@ onMounted(() => {
 onUnmounted(() => {
   ctx.revert()
 })
+
+const test = () =>
+  fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then((response) => response.json())
+    .then((json) => console.log(json))
 </script>
 
 <template>
@@ -38,7 +43,7 @@ onUnmounted(() => {
   <main ref="main">
     <catIcon class="cat-icon" />
     <div class="title-group">
-      <h1 class="welcome">welcomewelcomewelcomewelcome</h1>
+      <h1 class="welcome" @click="test">welcomewelcomewelcomewelcome</h1>
       <h2 class="h2">apple</h2>
       <h3 class="h3">banana</h3>
     </div>
